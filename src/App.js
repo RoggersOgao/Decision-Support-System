@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.scss';
+import Home from "./pages/home/Home.jsx";
+import OrganizationInfo from './pages/organizationInfo/OrganizationInfo';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Stakeholder from './pages/stakeholder/Stakeholder';
+import Disruption from './pages/disruption/Disruption';
+import Comparative from './components/comparativeanalysis/Comparative';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/organizationinfo" element={<OrganizationInfo />}/>
+      <Route path="/stakeholder" element={<Stakeholder />} />
+      <Route path="/disruption" element={<Disruption />} />
+      <Route path="/comparative" element={<Comparative />} />
+      </Routes>
+      </Router>
     </div>
   );
 }

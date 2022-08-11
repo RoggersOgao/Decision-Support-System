@@ -1,0 +1,53 @@
+
+
+$sidebarColor:#313131;
+$white: white;
+$redish:#ff4f5a;
+$greyish:#797979;
+$grey:rgb(42, 42, 42);
+$blueish:#2f7afc;
+$blue:#1231ff;
+$red:#ff0303;
+$border-color:rgba(0, 0, 0, 0.172);
+$borderColor:rgba(128, 128, 128, 0.135);
+
+	*,
+    *::after,
+    *::before{
+        margin:0;
+        padding:0;
+        box-sizing: inherit;
+    }
+    html{
+        font-size:62.5%;
+    }
+    body{
+        box-sizing: border-box;
+        font-family: 'Lato', sans-serif;
+    }  
+
+	@mixin respond ($breakpoint){
+	
+        @if $breakpoint == phone{
+            @media only screen and (max-width:600px){
+                @content
+            }
+        }
+        @if $breakpoint == tab-port{
+            @media only screen and (max-width:900px){
+                @content
+            }
+        }
+        @if $breakpoint == tab-land{
+            @media only screen and (max-width:1200px){
+                @content
+            }
+        }
+        @if $breakpoint == big-desktop{
+            @media only screen and (max-width:1800px){
+                @content
+            }
+        }
+    }
+        
+    

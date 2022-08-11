@@ -1,0 +1,141 @@
+
+@import "../../App.scss";
+.stakeholder{
+    &__form{
+        
+        width:80%;
+        margin:4rem auto;
+        box-shadow:0 3px 6px rgba(0, 0, 0, 0.157);
+        border:.3px solid $border-color;
+        border-radius:4.2rem;
+
+        &--title{
+            font-size:2.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color:$greyish;
+            display: flex;
+            justify-content: center;
+            padding: 3rem 0;
+        }
+
+        .radioGroup{
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+            border: .3px solid $borderColor;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 1.3rem;
+            min-height: 12rem;
+            box-shadow:0 3px 11px -6px rgba(0, 0, 0, 0.157);
+            margin-bottom: 2rem;
+
+            &--heading{
+                font-size: 1.4rem;
+                padding-bottom:1rem;
+            }
+            
+            &--1{
+                padding:1rem 1rem;
+                font-size:1.4rem;
+                color:$greyish;
+
+                label{
+                    padding-left: .6rem;
+                }
+            }
+
+        }
+        .matrixGroup{
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+            border: .3px solid $borderColor;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 1.3rem;
+            min-height: 12rem;
+            box-shadow:0 3px 11px -6px rgba(0, 0, 0, 0.157);
+            margin-bottom: 2rem;
+
+            &--heading{
+                font-size: 1.4rem;
+                padding-bottom:1rem;
+            }
+            .table{
+                thead{
+                    text-align: center;
+                    tr{
+                        td{
+                            color:$greyish;
+                            padding:1rem;
+                            font-size:1.4rem;
+                        }
+                    }
+                }
+                tbody{
+                    
+                    tr{
+                        
+                        td{
+                            padding:.6rem;
+                            color:$greyish;
+                            font-size: 1.4rem;
+
+
+                            input[type='radio']{
+                                display: flex;
+                                justify-content: center;
+                                width: 100%;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .buttonGroup{
+            padding:3rem 5rem;
+            display: flex;
+            justify-content: end;
+            .submit{
+                padding:1rem 5rem;
+                border:none;
+                color:$white;
+                background-color: $blueish;
+                font-size:1.5rem;
+                font-weight: bold;
+
+                &:hover{
+                    box-shadow: 0 8px 8px -4px rgb(128, 128, 128);
+                }
+
+            }
+        }
+        
+}
+.buttonGroup1{
+    padding:3rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    .link{
+        text-decoration: none;
+    }
+    .btn{
+        padding:1rem 5rem;
+        border:none;
+        color:$white;
+        background-color: $redish;
+        font-size:1.5rem;
+        font-weight: bold;
+
+        &:hover{
+            box-shadow: 0 8px 8px -4px rgb(128, 128, 128);
+        }
+
+    }
+}
+}
