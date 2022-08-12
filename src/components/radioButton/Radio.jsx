@@ -83,9 +83,9 @@ function Radio({type}) {
     <div className="container">
 {data.map((item,index)=> (
     <ul className={`board ${item.class}`}>   
-            <li>
+            <li key={index}>
                 <input 
-                key={index}
+                
                 type="radio" 
                 name={item.name}
                 id={item.id} 

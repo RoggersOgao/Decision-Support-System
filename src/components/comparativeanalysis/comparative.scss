@@ -102,7 +102,7 @@
             input{
                 border:none;
                 border-bottom:.4px solid rgba(128, 128, 128, 0.411);
-                width:40%;
+                width:100%;
                 padding:1rem 0 .5rem 0;
                 transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
@@ -168,7 +168,44 @@
 .solutiontitle{
     font-size:1.4rem;
     padding-bottom: 2.5rem;
+    color:$greyish;
 }
+
+
+.radioGroup1{
+            padding: 3rem;
+            border: .3px solid $borderColor;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 1.3rem;
+            min-height: 12rem;
+            box-shadow:0 3px 11px -6px rgba(0, 0, 0, 0.157);
+            margin-bottom: 2rem;
+    display: flex;
+        flex-direction: column;
+        min-height: 12rem;
+        margin-bottom: 2rem;
+    
+        label{
+            font-size:1.4rem;
+        }
+        input{
+            border:none;
+            border-bottom:.4px solid rgba(128, 128, 128, 0.411);
+            width:100%;
+            padding:1rem 0 .5rem 0;
+            transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            margin-bottom: 3rem;
+            &:active,&:focus{
+                outline:none;
+                border-bottom: 2px solid purple;
+                background-color:white;
+            }
+        }
+}
+    
+    
+
 .buttonGroup1{
     padding:3rem 5rem;
     display: flex;

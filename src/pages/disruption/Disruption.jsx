@@ -1,9 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import "./disruption.scss";
 import { Link } from 'react-router-dom';
 function Disruption() {
+
+    const [list, setList] = useState([])
+    const handleChange = (e) => {
+        const data = [...list]
+
+        const index = data.indexOf(e.currentTarget.value)
+
+        if(index === -1){
+            data.push(e.currentTarget.value)
+        }
+        else{
+            data.splice(index, 1)
+        }
+        setList(data)
+    }
   return (
     <div className="homeContainer">
     <div className="sidebar">
@@ -30,47 +45,47 @@ function Disruption() {
                 <div className="radioGroup">
                 <p className="radioGroup--heading">Choose all the group affected by the decision you seek to make.</p>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="mol" id="mol"  />
+                    <input onChange={handleChange} type="checkbox" name="mol" id="mol" value="Mode of Learning(Asynchronous)" />
                     <label htmlFor="mol">Mode of Learning(Asynchronous)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="atcst" id="atcst" />
+                    <input onChange={handleChange} type="checkbox" name="atcst" id="atcst" value="Access to Connectivity(Students)" />
                     <label htmlFor="atcst">Access to Connectivity(Students)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="atcf" id="atcf" />
+                    <input onChange={handleChange} type="checkbox" name="atcf" id="atcf" value="Access to Connectivity(Faculty)" />
                     <label htmlFor="atcf">Access to Connectivity(Faculty)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="atcsf" id="atcsf" />
+                    <input onChange={handleChange} type="checkbox" name="atcsf" id="atcsf"  value="Access to Connectivity(Staff)"/>
                     <label htmlFor="atcsf">Access to Connectivity(Staff)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="adt" id="adt" />
+                    <input onChange={handleChange} type="checkbox" name="adt" id="adt"  value="Access to Digital Tools"/>
                     <label htmlFor="adt">Access to Digital Tools</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="dcst" id="dcst" />
+                    <input onChange={handleChange} type="checkbox" name="dcst" id="dcst" value="Digital Competences(Students)" />
                     <label htmlFor="dcst">Digital Competences(Students)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="dcf" id="dcf" />
+                    <input onChange={handleChange} type="checkbox" name="dcf" id="dcf" value="Digital Competencies(Faculty)" />
                     <label htmlFor="dcf">Digital Competencies(Faculty)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="dcsf" id="dcsf" />
+                    <input onChange={handleChange} type="checkbox" name="dcsf" id="dcsf"  value="Digital Competencies(Staff)"/>
                     <label htmlFor="dcsf">Digital Competencies(Staff)</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="relms" id="relms" />
+                    <input onChange={handleChange} type="checkbox" name="relms" id="relms"  value="Robustness of Existing Learning Management System"/>
                     <label htmlFor="relms">Robustness of Existing Learning Management System</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="soe" id="soe" />
+                    <input onChange={handleChange} type="checkbox" name="soe" id="soe"  value="Stability of Electricity"/>
                     <label htmlFor="soe">Stability of Electricity</label>
                     </div>
                     <div className="radioGroup--1">
-                    <input type="checkbox" name="sos" id="sos" />
+                    <input onChange={handleChange} type="checkbox" name="sos" id="sos" value="Socialization of Students and Faculty" />
                     <label htmlFor="sos">Socialization of Students and Faculty</label>
                     </div>
                 </div>
@@ -94,58 +109,22 @@ function Disruption() {
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Access to Connectivity(Students)</td>
+                        {list.map((items,index)=>(
+                        <tr key={index}>
+                            <td>{items}</td>
                             <td>
-                                <input type="radio" name="student" id="student" />
+                                <input type="radio" name={items} id={items} />
                             </td>
-                            <td><input type="radio" name="student" id="student" /></td>
+                            <td><input type="radio" name={items} id={items} /></td>
                             <td>
-                            <input type="radio" name="student" id="student" />
-                            </td>
-                            <td>
-                            <input type="radio" name="student" id="student" />
-                            </td>
-                        </tr>
-                        <tr>
-                        <td>Digital Competencies(Faculty)</td>
-                            <td>
-                                <input type="radio" name="faculty" id="faculty" />
-                            </td>
-                            <td><input type="radio" name="faculty" id="faculty" /></td>
-                            <td>
-                            <input type="radio" name="faculty" id="faculty" />
+                            <input type="radio" name={items} id={items} />
                             </td>
                             <td>
-                            <input type="radio" name="faculty" id="faculty" />
+                            <input type="radio" name={items} id={items} />
                             </td>
                         </tr>
-                        <tr>
-                        <td>Stability of Electricity</td>
-                            <td>
-                                <input type="radio" name="tm" id="tm" />
-                            </td>
-                            <td><input type="radio" name="tm" id="tm" /></td>
-                            <td>
-                            <input type="radio" name="tm" id="tm" />
-                            </td>
-                            <td>
-                            <input type="radio" name="tm" id="tm" />
-                            </td>
-                        </tr>
-                        <tr>
-                        <td>Socialization of Students and Faculty</td>
-                            <td>
-                                <input type="radio" name="moe" id="moe" />
-                            </td>
-                            <td><input type="radio" name="moe" id="moe" /></td>
-                            <td>
-                            <input type="radio" name="moe" id="moe" />
-                            </td>
-                            <td>
-                            <input type="radio" name="moe" id="moe" />
-                            </td>
-                        </tr>
+                        ))}
+                        
                     </tbody>
                 </table>
                 </div>

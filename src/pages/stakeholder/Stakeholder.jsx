@@ -1,10 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import "./stakeholder.scss"
 import { Link } from 'react-router-dom';
 
 function Stakeholder() {
+
+    const [temp, setTemp] = useState([]);
+
+    function handleChange(e) {
+    //    let a = e.currentTarget.value
+    //    setTemp((temp)=>[...temp, a])
+
+       const data = [...temp]
+       const index = data.indexOf(e.currentTarget.value)
+
+       if(index === -1){
+        data.push(e.currentTarget.value)
+       }
+       else{
+        data.splice(index, 1)
+       }
+
+       setTemp(data)
+    }    
   return (
     <div className="homeContainer">
             <div className="sidebar">
@@ -26,43 +45,44 @@ function Stakeholder() {
                         <div className="radioGroup">
                         <p className="radioGroup--heading">Choose all the group affected by the decision you seek to make.</p>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="student" id="student"  />
+                            <input onChange={handleChange} type="checkbox" name="student" id="student"   value="Student"/>
                             <label htmlFor="student">Student</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="staff" id="staff" />
+                            <input onChange={handleChange} type="checkbox" name="staff" id="staff" value="Staff"/>
                             <label htmlFor="staff">Staff</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="faculty" id="faculty" />
+                            <input onChange={handleChange} type="checkbox" name="faculty" id="faculty" value="Faculty"/>
                             <label htmlFor="faculty">Faculty</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="bot" id="bot" />
+                            <input onChange={handleChange} type="checkbox" name="bot" id="bot" value="Board of Trustees"/>
                             <label htmlFor="bot">Board of Trustees</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="hera" id="hera" />
+                            <input onChange={handleChange} type="checkbox" name="hera" id="hera" value="Higher Education Regulatory Authority"/>
                             <label htmlFor="hera">Higher Education Regulatory Authority</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="investors" id="investors" />
+                            <input onChange={handleChange} type="checkbox" name="investors" id="investors" value="Investors"/>
                             <label htmlFor="investors">Investors</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="tm" id="tm" />
+                            <input onChange={handleChange} type="checkbox" name="tm" id="tm" value="Top Management"/>
                             <label htmlFor="tm">Top Management</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="suppliers" id="suppliers" />
+                            <input onChange={handleChange} type="checkbox" name="suppliers" id="suppliers" value="Suppliers(Contractors)"/>
                             <label htmlFor="suppliers">Suppliers(Contractors)</label>
                             </div>
                             <div className="radioGroup--1">
-                            <input type="checkbox" name="moe" id="moe" />
+                            <input onChange={handleChange} type="checkbox" name="moe" id="moe" value="Ministry of Education"/>
                             <label htmlFor="moe">Ministry of Education</label>
                             </div>
                         </div>
                     </div>
+
 
 
                     <div className="stakeholder__form--title">
@@ -82,58 +102,23 @@ function Stakeholder() {
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>Students</td>
+
+                                {temp.map((item,index)=>(
+                                <tr key={index}>
+                                    <td>{item}</td>
                                     <td>
-                                        <input type="radio" name="student" id="student" />
+                                        <input type="radio" name={item} id={item} />
                                     </td>
-                                    <td><input type="radio" name="student" id="student" /></td>
+                                    <td><input type="radio" name={item} id={item} /></td>
                                     <td>
-                                    <input type="radio" name="student" id="student" />
-                                    </td>
-                                    <td>
-                                    <input type="radio" name="student" id="student" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td>Faculty</td>
-                                    <td>
-                                        <input type="radio" name="faculty" id="faculty" />
-                                    </td>
-                                    <td><input type="radio" name="faculty" id="faculty" /></td>
-                                    <td>
-                                    <input type="radio" name="faculty" id="faculty" />
+                                    <input type="radio" name={item} id={item} />
                                     </td>
                                     <td>
-                                    <input type="radio" name="faculty" id="faculty" />
+                                    <input type="radio" name={item} id={item} />
                                     </td>
                                 </tr>
-                                <tr>
-                                <td>Top Management</td>
-                                    <td>
-                                        <input type="radio" name="tm" id="tm" />
-                                    </td>
-                                    <td><input type="radio" name="tm" id="tm" /></td>
-                                    <td>
-                                    <input type="radio" name="tm" id="tm" />
-                                    </td>
-                                    <td>
-                                    <input type="radio" name="tm" id="tm" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td>Ministry of Education</td>
-                                    <td>
-                                        <input type="radio" name="moe" id="moe" />
-                                    </td>
-                                    <td><input type="radio" name="moe" id="moe" /></td>
-                                    <td>
-                                    <input type="radio" name="moe" id="moe" />
-                                    </td>
-                                    <td>
-                                    <input type="radio" name="moe" id="moe" />
-                                    </td>
-                                </tr>
+                                ))}
+                               
                             </tbody>
                         </table>
                         </div>

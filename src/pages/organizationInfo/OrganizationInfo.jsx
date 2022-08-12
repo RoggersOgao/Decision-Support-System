@@ -6,18 +6,7 @@ import Dropdown from '../../components/dropdown/Dropdown';
 import Radio from '../../components/radioButton/Radio';
 import { Link } from 'react-router-dom';
 function OrganizationInfo() {
- 
-  useEffect(()=>{
-    getCountries()
-  },[])
-const [countries, setCountries] = useState([])
-  const getCountries =  async () => {
-    const response = await fetch(`https://restcountries.com/v3.1/all`)
 
-    const data = await response.json()
-    setCountries(data)
-    
-  }
   return (
     <div className="homeContainer">
             <div className="sidebar">
@@ -25,7 +14,6 @@ const [countries, setCountries] = useState([])
             </div>
             <div className="homeContainer__content">
                 <Navbar />
-
                 <div className="organizationinfo">
                   <form action="" className="organizationinfo__form">
 
