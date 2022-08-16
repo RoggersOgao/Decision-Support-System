@@ -1,0 +1,39 @@
+@import "../../App.scss";
+.navbar{
+    grid-column: 4 / -1;
+    position:sticky;
+    top:0;
+    background-color: $white;
+    z-index:7;
+
+    &__container{
+        display: flex;
+        justify-content: end;
+        gap:2rem;
+        padding-right: 5.9rem;
+        font-size:1.4rem;
+        color:$greyish;
+        height: 4rem;
+        border-bottom: 1px solid $border-color;
+        &--lang{
+            display: flex;
+            align-items: center;
+            gap:.6rem;
+        }
+        &--email{
+            display: flex;
+            align-items: center;
+            a{
+            display: flex;
+            align-items: center;
+            gap:.6rem;
+            text-decoration: none;
+            color:$greyish;
+
+            &:hover{
+                color:$blueish;
+            }
+            }
+        }
+    }
+}
