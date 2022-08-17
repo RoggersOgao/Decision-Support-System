@@ -6,6 +6,7 @@ import Dropdown from '../../components/dropdown/Dropdown';
 import Radio from '../../components/radioButton/Radio';
 import { Link } from 'react-router-dom';
 import OrganizationContext from '../../components/contexts/OrganizationContext';
+import {useNavigate} from 'react-router-dom'
 
 
 function OrganizationInfo() {
@@ -13,7 +14,7 @@ function OrganizationInfo() {
 //declaring the context
 
 
-
+const navigate = useNavigate()
 const {handleAdd, dispatch} = useContext(OrganizationContext)
 
 const [form, setForm] = useState({})
@@ -195,14 +196,16 @@ const handleSubmit = (e) =>{
     }
     if(!number || number === ''){
       setNumberG("Please set a number!!")
+    }else{
+        handleAdd(form)
+        setForm({})
+        navigate("/stakeholder")
     }
-    if (organizationName !== '' && organizationType !== '' && organizationRegion !== '' && country !== '' && economicRating !== '' && entity !== '' ){
-      handleAdd(form)
-      setForm({})
-    }
-    else{
-      setGlobalError("Please fill out all the required fields before submitting the Form!!")
-    }
+    // if (organizationName || organizationName !== '' ){
+    // }
+    // else{
+    //   alert("Please fill out all the required fields before submitting the Form!!")
+    // }
    
 }
 

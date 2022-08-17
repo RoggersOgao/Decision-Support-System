@@ -4,9 +4,10 @@ import Navbar from '../../components/navbar/Navbar';
 import "./stakeholder.scss"
 import StakeholderContext from '../../components/contexts/StakeholderContext';
 import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 
 function Stakeholder() {
-
+    const navigate = useNavigate()
     const {handleAddStakeholder} = useContext(StakeholderContext)
     const [temp, setTemp] = useState([]);
     const [success, setSuccess] = useState('')
@@ -34,6 +35,8 @@ function Stakeholder() {
 const handleSubmit = (e) => {
     e.preventDefault()
     handleAddStakeholder(stakeholdeForm)
+    navigate("/disruption")
+
     
 
     setSuccess("Data successfully uploaded!!")

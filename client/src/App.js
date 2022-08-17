@@ -9,7 +9,7 @@ import Comparative from './components/comparativeanalysis/Comparative';
 import { OrganizationProvider } from './components/contexts/OrganizationContext';
 import { StakeholderProvider } from './components/contexts/StakeholderContext';
 import { DisruptionProvider } from './components/contexts/DisruptionContext';
-
+// "homepage": "https://system.inteldss.org",
 function App() {
   return (
     <OrganizationProvider>

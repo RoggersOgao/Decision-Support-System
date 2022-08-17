@@ -5,8 +5,10 @@ import "./disruption.scss";
 import { Link } from 'react-router-dom';
 import DisruptionContext from '../../components/contexts/DisruptionContext';
 import axios from 'axios'
-function Disruption() {
 
+import {useNavigate} from 'react-router-dom'
+function Disruption() {
+    const navigate = useNavigate()
     const {handleAddDisruption}= useContext(DisruptionContext)
 
     const [list, setList] = useState([])
@@ -23,8 +25,7 @@ const setField = (field, value) => {
         [field]:value
     })
 }
-
-
+let index = 1;
 console.log(disruptionData)
 
     const handleError =(e) => {
@@ -62,6 +63,8 @@ console.log(disruptionData)
         try {
             //function to handle submit
             handleAddDisruption(disruptionData)
+            navigate("/comparative")
+
         } catch (error) {
         console.log(error)
         }
@@ -105,8 +108,59 @@ console.log(disruptionData)
                 
 
                 <div className="stakeholder__form--formGroup">
+
+
+
+                <div className="radioGroup">
+                      
+                      <p className="radioGroup--heading">Choose all the group affected by the decision you seek to make.</p>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`mol${index}`} id={`mol${index}`} value={`Mode of Learning(Asynchronous)${index + 1}`} />
+                      <label htmlFor={`mol${index}`}>Mode of Learning(Asynchronous)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`atcst${index}`}  id={`atcst${index}`}  value="Access to Connectivity(Students)" />
+                      <label htmlFor={`atcst${index}`}>Access to Connectivity(Students)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`atcf${index}`}  id={`atcf${index}`} value="Access to Connectivity(Faculty)" />
+                      <label htmlFor={`atcf${index}`}>Access to Connectivity(Faculty)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`atcs${index}`}  id={`atcs${index}`}  value="Access to Connectivity(Staff)"/>
+                      <label htmlFor={`atcs${index}`} >Access to Connectivity(Staff)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`adt${index}`}  id={`adt${index}`}   value="Access to Digital Tools"/>
+                      <label htmlFor={`adt${index}`}>Access to Digital Tools</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`dcst${index}`}  id={`dcst${index}`}  value="Digital Competences(Students)" />
+                      <label htmlFor={`dcst${index}`}>Digital Competences(Students)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`dcf${index}`}  id={`dcf${index}`} value="Digital Competencies(Faculty)" />
+                      <label htmlFor={`dcf${index}`}>Digital Competencies(Faculty)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`dcsf${index}`}  id={`dcsf${index}`} value="Digital Competencies(Staff)"/>
+                      <label htmlFor={`dcsf${index}`} >Digital Competencies(Staff)</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`relms${index}`} id={`relms${index}`} value="Robustness of Existing Learning Management System"/>
+                      <label htmlFor={`relms${index}`}>Robustness of Existing Learning Management System</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`soe${index}`} id={`soe${index}`} value="Stability of Electricity"/>
+                      <label htmlFor={`soe${index}`}>Stability of Electricity</label>
+                      </div>
+                      <div className="radioGroup--1">
+                      <input onChange={handleChange} type="checkbox" name={`sos${index}`}  id={`sos${index}`} value="Socialization of Students and Faculty" />
+                      <label htmlFor={`sos${index}`}>Socialization of Students and Faculty</label>
+                      </div>
+                      </div>
                         
-                        <div className="radioGroup">
+                        {/* <div className="radioGroup">
                         <p className="radioGroup--heading">Choose all the group affected by the decision you seek to make.</p>
                             <div className="radioGroup--1">
                             <input onChange={(e)=>{setField('student','student');handleChange(e)}} type="checkbox" name="student" id="student"   value="Student"/>
@@ -144,24 +198,24 @@ console.log(disruptionData)
                             <input onChange={(e)=>{setField('moe','Ministry of Education');handleChange(e)}}  type="checkbox" name="moe" id="moe" value="Ministry of Education"/>
                             <label htmlFor="moe">Ministry of Education</label>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
 
 
                     <div className="stakeholder__form--title">
-                        power interest matrix
+                        disruption ranking
                     </div>
                     <div className="matrixGroup">
-                    <p className="matrixGroup--heading">Select the Power (Influence) - Interest for each stakeholder.</p>
+                    <p className="matrixGroup--heading">Please rank the severity of the disruptor categories selected.</p>
                         <table className="table">
                             <thead>
                                 <tr>
                                     <td></td>
-                                    <td>High Power, High Interest</td>
-                                    <td>High Power, Low Interest</td>
-                                    <td>Low Power, High Interest</td>
-                                    <td>Low Power, Low Interest</td>
+                                    <td>Low</td>
+                                    <td>Moderate</td>
+                                    <td>High</td>
+                                    <td>Critical</td>
                                 </tr>
                             </thead>
 
