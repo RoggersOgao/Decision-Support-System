@@ -85,6 +85,21 @@ console.log(disruptionData)
         }
         setList(data)
     }
+
+    const [policyYN, setPolicyYN] = useState([])
+    const handlePolicy =(e) => {
+        const data = [...policyYN]
+
+        const index = data.indexOf(e.currentTarget.value)
+
+        if (index === -1){
+            data.push(e.currentTarget.value)
+        }else{
+            data.splice(index, 1)
+        }
+        setPolicyYN(data)
+
+    }
   return (
     <div className="homeContainer">
     <div className="sidebar">
@@ -246,22 +261,23 @@ console.log(disruptionData)
                 <div className="yesNo">
                     <p className="yesNo--heading">Are there any policies in place to support this decision making process</p>
                     <div className="radioYgroup">
-                    <input type="radio" name="yes_no" id="radio" onChange={(e)=>setField('policies', e.currentTarget.value)}/>
+                    <input type="radio" name="yes_no" id="radio" onChange={(e)=>{setField('policies', e.currentTarget.value);handlePolicy(e)}}/>
                     <label htmlFor='radio'>Yes</label>
                     </div>
                     <div className="radioYgroup">
-                    <input type="radio" name="yes_no" id="radio" onChange={(e)=>setField('policies', e.currentTarget.value)}/>
+                    <input type="radio" name="yes_no" id="radio" onChange={(e)=>{setField('policies', e.currentTarget.value);handlePolicy(e)}}/>
                     <label htmlFor='radio'>No</label>
                     </div>
 
                 </div>
-
-                <div className="yesNo">
+            {policyYN.map((item,index)=>(
+                <div className="yesNo" key={index}>
 
                             <label htmlFor="file" className='yesNo--heading'>Please upload your policies</label>
                             <input type="file" name="" id="file" onChange={(e)=>setFile(e.target.files[0])}/>
 
                 </div>
+            ))}
                 <div className="buttonGroup">
                     <button type="submit" className="submit">Submit</button>
                 </div>

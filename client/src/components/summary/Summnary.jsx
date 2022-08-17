@@ -131,13 +131,13 @@ function Summnary({list,repeatArray}) {
                       <div className='solutiontitle'>
                                   This section collects summarized solutions for organization x disruptors. Write a summary of how organization x addressed the following disruptor categories.
                               </div>
-                          
                               {comparativeList.map((item, index)=>(
                                     <div key={index}>        
                                     <label htmlFor="">{item}</label>
                                     <input type="text" name="" id="" placeholder='Your Answer' />
                                     </div>
-                              ))}
+                                          ))}
+                              
                         
                       </div>
                       </div>
