@@ -5,13 +5,30 @@
     grid-template-columns: repeat(auto-fit, minmax(114px, 1fr));
     // grid-gap:1rem;
     min-height: 100vh;
+    transition: all .3s ease-in-out;
+    @include respond(tab-port){
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+    @include respond(phone){
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
 
     .sidebar{
         grid-column: 1 / 3;
         background-color: $sidebarColor;
+        @include respond(tab-port){
+            grid-column: 1 / 2;
+        }
+        @include respond(phone){
+            grid-column: 1 / 2;
+        }
     }
     &__content{
         grid-column: 4 / -1;
+        min-width:35rem;
+        @include respond(phone){
+            grid-column: 2 / -1
+        }
 
         .landing{
             .top{
@@ -19,22 +36,43 @@
                 margin:0 auto;
                 display: flex;
                 align-items: center;
-                @include respond(tab-land){
+                @include respond(tab-port){
+                    width:100%;
+                    margin:3rem auto;
                     flex-direction: column;
                 }
                 @include respond(phone){
+                    width:100%;
+                    margin:3rem auto;
+                    align-items: center;
                     flex-direction: column;
                 }
                 &__left{
                     img{
                         width:100%;
                         height: 28.2rem;
+                        object-fit: cover;
+                        @include respond(tab-port){
+                            height: 40rem;
+                            object-fit: cover;
+
+                        }
+                        @include respond(phone){
+                            height: 20rem;
+                            object-fit: cover;
+                        }
                     }
                 }
                 &__right{
                     &--text{
                     width:80%;
                     margin:0 auto;
+                    @include respond(tab-port){
+                        width:90%;
+                    }
+                    @include respond(phone){
+                        width:90%;
+                    }
                         .title{
                             font-size:2.8rem;
                             font-family: jost;
@@ -78,16 +116,27 @@
                 margin:0 auto;
                 display: flex;
                 align-items: center;
-                @include respond(tab-land){
+                @include respond(tab-port){
+                    width:100%;
+                    margin:3rem auto;
                     flex-direction: column;
                 }
                 @include respond(phone){
+                    width:100%;
+                    margin:3rem auto;
+                    align-items: center;
                     flex-direction: column;
                 }
                 &__left{
                     &--text{
                         width:80%;
                         margin:0 auto;
+                        @include respond(tab-port){
+                            width:90%;
+                        }
+                        @include respond(phone){
+                            width:90%;
+                        }
                         .title{
                             font-size:2.8rem;
                             font-family: jost;
@@ -125,6 +174,16 @@
                 img{
                     width:100%;
                     height: 28.2rem;
+                    object-fit:cover;
+                    @include respond(tab-port){
+                        height: 40rem;
+                        object-fit: cover;
+
+                    }
+                    @include respond(phone){
+                        height: 20rem;
+                        object-fit: cover;
+                    }
                 }
             }
             }

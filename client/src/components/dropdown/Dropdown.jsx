@@ -8,7 +8,7 @@ function Dropdown({type,select}) {
   const [choose, setChoose] = useState('Choose')
     const [click, setClick] = useState(false)
   
-    let menuRef = useRef()
+    const menuRef = useRef()
     let data;
 
 switch(type){
@@ -50,7 +50,8 @@ switch(type){
 
     useEffect(()=>{
       let handler = (e)=>{
-        if(!menuRef.current.contains(e.target)) {
+        const el2 = menuRef.current.contains(e.target)
+        if(!el2) {
           setClick(false)
         }
       }
@@ -60,7 +61,7 @@ switch(type){
         document.removeEventListener("mousedown", handler)
       }
       
-    },[])
+    },[menuRef])
 
     
   return (

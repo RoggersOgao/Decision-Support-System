@@ -1,14 +1,21 @@
 
-  .board{
-    width: 20%;
-
-    li{
-        list-style: none;
-        height: 2rem;
+  //   li{
+  //     width: 20%;
+  //       list-style: none;
+  //       height: 2rem;
 
         
-    }
+  //   }
+
+  .checkboxItems{
+    display: flex;
+    align-items: center;
+    
   }
-  .organization{
-    width:64%;
+
+  .radiobuttonGroup{
+    max-width:50px;
+    transform: translateY(-4.5px);
+
   }
+ 

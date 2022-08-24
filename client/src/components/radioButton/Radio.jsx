@@ -84,21 +84,23 @@ function Radio({type, select}) {
 
     <div className="container">
 {data.map((item,index)=> (
-    <ul className={`board ${item.class}`} key={index}>   
-            <li >
+    <div className={`board ${item.class}`} key={index}>   
+
+            <div className='checkboxItems'>
                 <input 
-                
                 type="radio" 
+                className='radiobuttonGroup'
                 name={item.name}
                 id={item.id} 
                 value={item.value}
                 checked={selected === `${item.value}`}
                 onChange={handleChange}
                 
+                
                 />
                 <label htmlFor={item.id}>{item.options}</label>
-            </li>
-    </ul>
+            </div>
+    </div>
         ))}
     </div>
     

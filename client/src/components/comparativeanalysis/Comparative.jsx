@@ -10,23 +10,42 @@ import Summnary from '../summary/Summnary';
 function Comparative() {
 
   
+  const [comparativeList, setComparativeList] = useState([])
+
+  const handleChange = (e, index) => {
+
+    const data = [...comparativeList]
+    index = data.indexOf(e.currentTarget.value)
+
+    if(index === -1){
+      data.push(e.currentTarget.value)
+    }
+    else{
+      data.splice(index,1)
+    }
+
+    setComparativeList(data, ...data)
+    
+  }
+  const handleChangeNone = (e) =>{
+    setComparativeList([])
+  }
 
   //function to handle the repeat of components in the page
 
   const [number, setNumber] = useState(0)
 
   
- 
   const handleChangeRpt = (e) =>{
     const valueOfRadio = +e.currentTarget.value
-    setNumber(valueOfRadio)
-  
+    setNumber(valueOfRadio) 
     
   }
 
 
   let repeatArray = [...Array(number)]
   
+
   return (
     <div className="homeContainer">
             <div className="sidebar">
@@ -72,13 +91,13 @@ function Comparative() {
                         <label htmlFor="num">6</label>
                         </div>
                         <div className="formgroup">
-                        <input onChange={handleChangeRpt}type="radio" name="number_radio" id="num" value="0"/>
+                        <input onChange={(e)=>{handleChangeRpt(e);handleChangeNone(e)}}type="radio" name="number_radio" id="num" value="0"/>
                         <label htmlFor="num">None</label>
                         </div>
                             </div>
 
                     
-                    <Summnary list={number} repeatArray={repeatArray}/>
+                    <Summnary list={number} repeatArray={repeatArray} handleChange={handleChange} comparativeList={comparativeList}/>
 
                    
                     <div className="buttonGroup">

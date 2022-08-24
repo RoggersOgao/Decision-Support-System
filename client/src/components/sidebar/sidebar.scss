@@ -1,139 +1,243 @@
 @import "../../App.scss";
-.sidebar{
-    transition:all .5s ease-in-out;
-position:sticky;
-top:0;
-    &__logo{
-padding-top: 2.5rem;
-font-size:3.8rem;
-font-weight: bold;
-font-family: Lato;
-cursor:pointer;
-color:$white;
-padding-left: 1rem;
-margin-bottom: 1.9rem;
 
-.link{
-    text-decoration: none;
-    color:$white;
+.sidebarlink{
     display: flex;
-    justify-content: start;
     align-items: center;
+    cursor:pointer;
+    width:86%;
     gap:1rem;
-}
+    padding:.7rem 0 .7rem 1.6rem;
+    text-decoration: none;
+    color:white;
+    margin:0;
+    display: flex;
+    
+        &:hover{
+            background-color: white;
+            color:grey;
+            border-radius: 4rem;
+        }
+    }
+.sidebar{
+    
+    background-color: rgb(23, 23, 23);
+    height: 100vh;
+    position: sticky;
+    top:0;
+    transition: all .3s ease-in-out;
+
+    &__logo{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding:1rem;
+        &--content{
+            .sidebarLogo{
+                display: flex;
+                align-items: center;
+                cursor:pointer;
+
+                max-width:20%;
+                gap:1rem;
+                padding:.7rem 0 .7rem 1.6rem;
+                text-decoration: none;
+                color:white;
+                margin:0;
+                display: flex;
+                
+            &--icon{
+                font-size:3.8rem;
+
+                @include respond(tab-port){
+                    font-size: 4.2rem;
+                    margin-left:-10px;
+                
+                }
+                @include respond(phone){
+                    margin-left:-15px;
+
+                }
+            }
+
+            &--name{
+                font-size:3.2rem;
+                font-weight: bold;
+                font-family: Jost;
+                transition: all .3s ease-in-out;
+                @include respond(tab-port){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                @include respond(phone){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                
+            }
+        }
+        }
+
+        &--menu{
+            display: none;
+            visibility: hidden;
+            // cursor:pointer;
+            // span{
+            //     border:1px solid white;
+            //     width: 25px;
+            //     display: flex;
+            //     margin-bottom: 1rem;
+            //     @include respond(tab-port){
+            //         opacity:0;
+            //         transform: translateX(-30px);
+            //         visibility: hidden;
+            //     }
+            //     @include respond(phone){
+            //         opacity:0;
+            //         transform: translateX(-30px);
+            //         visibility: hidden;
+            //     }
+            // }
+        }
     }
 
-    &__list{
 
+    &__list{
+        color:white;
         &--title{
             font-size:1.7rem;
-            color:$white;
             font-weight: bold;
             margin-bottom: 1.5rem;
             margin-left: 2.5rem;
+            transition: all .3s ease-in-out;
+            @include respond(tab-port){
+                opacity:0;
+                visibility: hidden;
+            }
+            @include respond(phone){
+                opacity:0;
+                visibility: hidden;
+            }
         }
+
         &--items{
             font-size:1.4rem;
             font-family: Jost;
-            color:$white;
             margin-left: 4rem;
+            margin-bottom: 2rem;
+
+            @include respond(tab-port){
+                margin-left: 7px;
+            }
+            @include respond(phone){
+                margin-left: 0;
+            }
             
+            .item--1{
+                &--icon{
+                    font-size:1.8rem;
+                    @include respond(tab-port){
+                        font-size:2.5rem
+                    }
+                    @include respond(phone){
+                        font-size:2.5rem
+                    }
+                }
+                &--name{
+                    font-size:1.5rem;
+                    transition: all .3s ease-in-out;
+                    @include respond(tab-port){
+                        opacity:0;
+                        transform: translateX(-30px);
+                        visibility: hidden;
+                    }
+                @include respond(phone){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                } 
+            }
+            .item--2{
+                
+                &--icon{
+                    font-size:1.8rem;
+                    @include respond(tab-port){
+                        font-size:2.5rem
+                    }
+                    @include respond(phone){
+                        font-size:2.5rem
+                    }
+                }
+                &--name{
+                    font-size:1.5rem;
+                    transition: all .3s ease-in-out;
+                    @include respond(tab-port){
+                        opacity:0;
+                        transform: translateX(-30px);
+                        visibility: hidden;
+                    }
+                @include respond(phone){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                }
+            }
+            .item--3{
+                
+                &--icon{
+                    font-size:1.8rem;
+                    @include respond(tab-port){
+                        font-size:2.5rem
+                    }
+                    @include respond(phone){
+                        font-size:2.5rem
+                    }
+                }
+                &--name{
+                    font-size:1.5rem;
+                    transition: all .3s ease-in-out;
+                    @include respond(tab-port){
+                        opacity:0;
+                        transform: translateX(-30px);
+                        visibility: hidden;
+                    }
+                @include respond(phone){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                }
+            }
+            .item--4{
+                
+                &--icon{
+                    font-size:1.8rem;
+                    @include respond(tab-port){
+                        font-size:2.5rem
+                    }
+                    @include respond(phone){
+                        font-size:2.5rem
+                    }
+                }
+                &--name{
+                    font-size:1.5rem;
+                    transition: all .3s ease-in-out;
+                    @include respond(tab-port){
+                        opacity:0;
+                        transform: translateX(-30px);
+                        visibility: hidden;
+                    }
+                @include respond(phone){
+                    opacity:0;
+                    transform: translateX(-30px);
+                    visibility: hidden;
+                }
+                }
 
-            .item__1{
-                margin-bottom: .3rem;
-                width:86%;
-                transition: all .1s ease-in;
-                .link{
-                padding:.7rem 0 .7rem 1.6rem;
-                display: flex;
-                align-items: center;
-                gap:1rem;
-                color:$white;
-                text-decoration: none;
-                &:hover{
-                    background-color: $white;
-                    color:$grey;
-                    border-radius: 4rem;
-                }
-                }
-                .active{
-                    color:$grey;
-                    background-color: $white;
-                    border-radius: 4rem;
-                }
-
-               
-            }
-            .item__2{
-                margin-bottom: .3rem;
-                width:86%;
-                transition: all .1s ease-in;
-                .link{
-                padding:.7rem 0 .7rem 1.6rem;
-                display: flex;
-                align-items: center;
-                gap:1rem;
-                color:$white;
-                text-decoration: none;
-                &:hover{
-                    background-color: $white;
-                    color:$grey;
-                    border-radius: 4rem;
-                }
-                }
-                .active{
-                    color:$grey;
-                    background-color: $white;
-                    border-radius: 4rem;
-                }
-            }
-            .item__3{
-                margin-bottom: .3rem;
-                width:86%;
-                transition: all .1s ease-in;
-                .link{
-                padding:.7rem 0 .7rem 1.6rem;
-                display: flex;
-                align-items: center;
-                gap:1rem;
-                color:$white;
-                text-decoration: none;
-                &:hover{
-                    background-color: $white;
-                    color:$grey;
-                    border-radius: 4rem;
-                }
-                }
-                .active{
-                    color:$grey;
-                    background-color: $white;
-                    border-radius: 4rem;
-                }
-            }
-            .item__4{
-                margin-bottom: 1rem;
-                width:86%;
-                transition: all .1s ease-in;
-                .link{
-                padding:.7rem 0 .7rem 1.6rem;
-                display: flex;
-                align-items: center;
-                gap:1rem;
-                color:$white;
-                text-decoration: none;
-                &:hover{
-                    background-color: $white;
-                    color:$grey;
-                    border-radius: 4rem;
-                }
-                }
-                .active{
-                    color:$grey;
-                    background-color: $white;
-                    border-radius: 4rem;
-                }
             }
         }
-
     }
 }
